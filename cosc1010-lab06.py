@@ -1,9 +1,9 @@
-# Your Name Here
+# Cole Jordan
 # UWYO COSC 1010
-# Submission Date
+# 10/17/24
 # Lab 06
-# Lab Section: 
-# Sources, people worked with, help given to: 
+# Lab Section: 12
+# Sources, people worked with, help given to: Peter Martinez and Chauncy Hendon
 # your
 # comments
 # here
@@ -79,17 +79,39 @@ print(len(random_string)) # Print out the size for reference
     # You will  need to add the letter to the dictionary on first occurrence 
     # Then increment its corresponding count 
 
+sortedList = []
+for i in random_string:
+    sortedList.append(i)
+sortedList.sort()
+
+letterCount = {}
+
+for char in sortedList:
+    if char in letterCount.keys():
+        letterCount[char] = letterCount.get(char) + 1
+    else:
+        letterCount[char] = 1
 
 #Load all the elements into a dictionary
 #Will need to first declare a dictionary 
 
 # Output: each letter and its corresponding occurrence in alphabetical order
 
+for i in letterCount:
+    print(f"{i} Occured {letterCount.get(i)} Times")
+
 print("*"*75)
 # Output which letter occurred the most 
+currentGreatestKey = "a"
+currentLeastKey = "a"
+for i in letterCount:
+    if letterCount.get(i) > letterCount.get(currentGreatestKey):
+        currentGreatestKey = i
+    elif letterCount.get(i) < letterCount.get(currentLeastKey):
+        currentLeastKey = i
 
-most_occurred = ""
-least_occurred = ""
+most_occurred = currentGreatestKey
+least_occurred = currentLeastKey
 
 print(f"The letter that occurred the most is {most_occurred}")
 print("*"*75)
@@ -98,3 +120,11 @@ print(f"The letter that occurred the most is {least_occurred}")
 print("*"*75)
 
 # Output what the percentage of the string each character is, again in alphabetical
+
+letterPercentage = {}
+
+for i in letterCount:
+    letterPercentage[i] = (letterCount.get(i) / 2500) * 100
+
+for i in letterPercentage:
+    print(f"Letter: {i}   Percentage Occurance: {2letterPercentage.get(i)}%")
